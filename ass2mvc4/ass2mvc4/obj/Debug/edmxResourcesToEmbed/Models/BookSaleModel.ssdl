@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bookSaleModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="book">
+    <Key>
+      <PropertyRef Name="ISBN" />
+    </Key>
+    <Property Name="ISBN" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="bookName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="category" Type="varchar" MaxLength="50" />
+    <Property Name="description" Type="varchar" MaxLength="50" />
+    <Property Name="price" Type="money" Nullable="false" />
+    <Property Name="noInStock" Type="int" />
+  </EntityType>
+  <EntityType Name="saleRecord">
+    <Key>
+      <PropertyRef Name="saleId" />
+    </Key>
+    <Property Name="saleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userId" Type="int" Nullable="false" />
+    <Property Name="ISBN" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="userId" />
+    </Key>
+    <Property Name="userId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="lastName" Type="varchar" MaxLength="50" />
+    <Property Name="firstName" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="phonenumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="address" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_saleRecord_book">
+    <End Role="book" Type="Self.book" Multiplicity="1" />
+    <End Role="saleRecord" Type="Self.saleRecord" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="book">
+        <PropertyRef Name="ISBN" />
+      </Principal>
+      <Dependent Role="saleRecord">
+        <PropertyRef Name="ISBN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_saleRecord_user">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="saleRecord" Type="Self.saleRecord" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="saleRecord">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="bookSaleModelStoreContainer">
+    <EntitySet Name="book" EntityType="Self.book" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="saleRecord" EntityType="Self.saleRecord" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_saleRecord_book" Association="Self.FK_saleRecord_book">
+      <End Role="book" EntitySet="book" />
+      <End Role="saleRecord" EntitySet="saleRecord" />
+    </AssociationSet>
+    <AssociationSet Name="FK_saleRecord_user" Association="Self.FK_saleRecord_user">
+      <End Role="user" EntitySet="user" />
+      <End Role="saleRecord" EntitySet="saleRecord" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

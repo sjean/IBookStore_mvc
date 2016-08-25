@@ -1,0 +1,71 @@
+﻿@model IEnumerable<ass2mvc4.Models.user>
+
+@{
+    ViewBag.Title = "User";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="head_title">
+    <h3 style="color: #4da6ff; ">User Table</h3>
+</div>
+
+<table class="table" id="user_table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.lastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.firstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.phonenumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.birthday)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.lastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.firstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.phonenumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.birthday)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.userId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.userId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.userId })
+                </td>
+            </tr>
+
+        }
+    </tbody>
+
+</table>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>

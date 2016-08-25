@@ -1,0 +1,56 @@
+﻿body {
+    margin:0px;
+    padding:0px;
+    color:#ffffff;
+}
+
+#header {
+    background: #454545;
+    height: 70px;
+
+}
+.menu {
+    /*background: #454545;*/
+    height: 70px;
+    border-radius: 10px;
+}
+
+    .menu a:hover {
+        color:#808080;
+        font-weight:bold;
+        text-decoration:underline;
+    }
+
+.menuItem {
+    font-size: 20px;
+    color:white;
+    font-family:Consolas;
+    line-height: 70px;
+}
+
+.menuItem_hover {
+    background: #E74C3C;
+    color:#808080;
+}
+
+.menuItem_dynamic {
+    background: #454545;
+    color:#ffffff;
+    height:30px;
+    text-align:center;
+    line-height:30px;
+    font-family:Arial;
+    padding:7px;
+    border-radius:5px;
+    margin-top:1px;
+    z-index:1000;
+}
+
+.menuItem_dynamic_hover {
+    background: #E74C3C;
+    color:#808080;
+}
+
+
+
+

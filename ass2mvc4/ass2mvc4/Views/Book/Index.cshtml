@@ -1,0 +1,65 @@
+﻿@model IEnumerable<ass2mvc4.Models.book>
+
+@{
+    ViewBag.Title = "Book";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="head_title">
+    <h3 style="color: #4da6ff; ">Book Table</h3>
+</div>
+
+
+<table class="table" id="user_table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.bookName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.noInStock)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.bookName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.category)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.noInStock)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ISBN }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ISBN }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ISBN })
+        </td>
+    </tr>
+}
+        </tbody>
+
+</table>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>

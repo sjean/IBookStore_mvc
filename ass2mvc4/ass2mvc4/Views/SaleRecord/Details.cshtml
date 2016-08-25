@@ -1,0 +1,37 @@
+﻿@model ass2mvc4.Models.saleRecord
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="head_title">
+    <h3 style="color: #4da6ff; ">Details</h3>
+</div>
+
+
+<div>
+    
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.book.bookName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.book.bookName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.user.lastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.user.lastName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.saleId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

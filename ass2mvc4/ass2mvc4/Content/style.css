@@ -1,0 +1,267 @@
+﻿/* GLOBAL STYLES
+    -------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+body {
+    padding:0px;
+    margin:0px;
+    background-color: #E5E7E9;
+}
+/*Documentation-------------------------*/
+#head_title{
+    margin-top:65px;
+    
+}
+
+.title p{
+    margin-left:40px;
+    font-size:11px;
+
+}
+
+ .doc{
+    margin-left:40px;
+    font-size:11px;
+}
+
+ 
+/*#documentation h3*/
+
+
+
+
+
+/*
+     navigation   
+     --------------------------------------------------*/
+
+#header {
+    background: #454545;
+    height: 70px;
+}
+
+.menu {
+    /*background: #454545;*/
+    height: 70px;
+    border-radius: 10px;
+}
+
+    .menu a:hover {
+        color: #808080;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
+.menuItem {
+    font-size: 20px;
+    color: white;
+    font-family: Consolas;
+    line-height: 70px;
+}
+
+.menuItem_hover {
+    background: #E74C3C;
+    color: #808080;
+}
+
+.menuItem_dynamic {
+    background: #454545;
+    color: #ffffff;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-family: Arial;
+    padding: 7px;
+    border-radius: 5px;
+    margin-top: 1px;
+    z-index: 1000;
+}
+
+.menuItem_dynamic_hover {
+    background: #E74C3C;
+    color: #808080;
+}
+/*
+
+    The end of navigation
+---------------------------------------------------------*/
+
+
+
+
+
+/* CUSTOMIZE THE CAROUSEL
+    -------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    /*margin-top:100px;*/
+}
+
+    .carousel .container {
+        position: relative;
+        /*z-index: 9;*/
+        width: 100%;
+        height: 480px;
+    }
+
+.carousel-control {
+    height: 0px;
+    margin-top:115px;
+    margin-left:-55px;
+    margin-right:-57px;
+    font-size: 120px;
+    /*text-shadow: 0 1px 1px rgba(0,0,0,.4);*/
+    background-color: transparent;
+    border: 0;
+    z-index: 10;
+}
+
+.carousel .item {
+    height: 480px;
+    /*border:1px solid blue;*/
+}
+
+.carousel img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 480px;
+    filter: blur(5px);
+}
+
+.carousel-caption {
+    background-color: rgba(0,0,0,0.2);
+   
+    max-width: 550px;
+    position: absolute;
+    left:50px;
+    /*margin-left: -20px;*/
+    /*margin-left:50px;
+    margin-top: 170px;*/
+    border-radius: 10px;
+    padding: 10px;
+}
+
+    .carousel-caption h3 {
+        
+        color: #ffffff;
+        font-family: fantasy;
+    }
+
+    .carousel-caption .lead {
+        margin: 0;
+        
+        font-size: 16px;
+        line-height: 25px;
+        font-family: Arial;
+        color: #fff;
+        text-shadow: 0 1px 1px rgba(0,0,0,.4);
+    }
+
+    .carousel-caption .btn {
+        opacity:initial;
+        margin-top: 15px;
+    }
+
+    .carousel-caption .overview {
+        opacity:1;
+        margin-top: 5px;
+    }
+
+
+
+/*
+    The style sheet of site.master
+    */
+#content_of_site {
+    height:auto;
+    width:900px;
+    margin:0 auto;
+    background:#ffffff;
+    padding:20px;
+    border-radius:10px;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+    #content_of_site .site_map {
+        color:#333333;
+        font-family:fantasy;
+    }
+
+
+
+/**
+    The style sheet of site_map.aspx
+    */
+.site_map_treeView {
+    font-size:20px;
+    display:inline-block;
+    width:900px;
+    text-align:center;
+    margin-left:20px;
+}
+
+    .site_map_treeView a {
+        color:#454545;
+        margin-top:15px;
+        display:inline-block;
+        font-family:Consolas;
+    }
+
+    .site_map_treeView a:hover{
+        font-weight:bold;
+    }
+
+.site_map_title{
+    text-align:left;
+    font-family:fantasy;
+    font-size:25px;
+    margin:20px;
+    margin-bottom:10px;
+}
+
+.hr_line{
+    width:860px;
+    height:10px;
+    border-bottom:2px solid #454545;
+    margin-left:15px;
+    margin-right:15px;
+
+}
+
+
+
+/*
+    The style sheet of footer
+    */
+#footer {
+    width:100%;
+    height:80px;
+    background-color:#1a1a1a;
+    text-align:center;
+    position:relative;
+    vertical-align:bottom;
+}
+    #footer .source {
+        position:absolute;
+        top:90px;
+        left:10px;
+        width:250px;
+        height:50px;
+        border:1px solid #ffffff;      
+        line-height:50px;  
+    }
+
+    #footer .copyright {
+        color: #ffffff;
+        padding-top:15px;
+    }
+
+    #footer a {
+      color: #ffffff;      
+    }

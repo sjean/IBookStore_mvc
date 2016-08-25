@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    
+   
+
+   
+
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="~/Content/style.css" />
+    <link rel="shortcut icon" href="~/img/ico/icon.png" />
+
+</head>
+
+<body style="background-color: #f2f2f2">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("IBookStore", "Index", "Home", null, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @*<li>@Html.ActionLink("Home", "Index", "Home")</li>*@                                
+                    <li>@Html.ActionLink("User", "Index", "User")</li>
+                    <li>@Html.ActionLink("Book", "Index", "Book")</li>
+                    <li>@Html.ActionLink("SaleRecord", "Index", "SaleRecord")</li>
+                    <li>@Html.ActionLink("Documentation", "Documentation", "Home")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer id="footer">
+            <p class="copyright">&copy; @DateTime.Now.Year - 虞威(Sam) & 赵仕进(Alex)</p>
+            <P>
+                <a href="http://users.monash.edu.au/~sgrose/msh/disclaimer.htm" target="_blank">Disclaimer</a>
+            </P>
+
+        </footer>
+    </div>
+
+    <script type="text/javascript" src="~/Scripts/myJavaScript.js"></script>
+    <link type="text/css" rel="stylesheet" href="~/Content/siteContent/hilight.css" />
+
+    @RenderSection("scripts", required: false)
+
+
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap-transition.js"></script>
+    <script src="js/bootstrap-alert.js"></script>
+    <script src="js/bootstrap-modal.js"></script>
+    <script src="js/bootstrap-dropdown.js"></script>
+    <script src="js/bootstrap-scrollspy.js"></script>
+    <script src="js/bootstrap-tab.js"></script>
+    <script src="js/bootstrap-tooltip.js"></script>
+    <script src="js/bootstrap-popover.js"></script>
+    <script src="js/bootstrap-button.js"></script>
+    <script src="js/bootstrap-collapse.js"></script>
+    <script src="js/bootstrap-carousel.js"></script>
+    <script src="js/bootstrap-typeahead.js"></script>
+    <script>
+        !function ($) {
+            $(function () {
+                // carousel demo
+                $('#myCarousel').carousel()
+            })
+        }(window.jQuery)
+    </script>
+    <script src="js/holder/holder.js"></script>
+
+
+</body>
+</html>

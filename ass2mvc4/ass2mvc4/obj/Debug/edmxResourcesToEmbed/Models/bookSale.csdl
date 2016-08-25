@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bookSaleModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="book">
+    <Key>
+      <PropertyRef Name="ISBN" />
+    </Key>
+    <Property Name="ISBN" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="bookName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="category" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="noInStock" Type="Int32" />
+    <NavigationProperty Name="saleRecords" Relationship="Self.FK_saleRecord_book" FromRole="book" ToRole="saleRecord" />
+  </EntityType>
+  <EntityType Name="saleRecord">
+    <Key>
+      <PropertyRef Name="saleId" />
+    </Key>
+    <Property Name="saleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userId" Type="Int32" Nullable="false" />
+    <Property Name="ISBN" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="book" Relationship="Self.FK_saleRecord_book" FromRole="saleRecord" ToRole="book" />
+    <NavigationProperty Name="user" Relationship="Self.FK_saleRecord_user" FromRole="saleRecord" ToRole="user" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="userId" />
+    </Key>
+    <Property Name="userId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="lastName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="firstName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="phonenumber" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="address" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="saleRecords" Relationship="Self.FK_saleRecord_user" FromRole="user" ToRole="saleRecord" />
+  </EntityType>
+  <Association Name="FK_saleRecord_book">
+    <End Role="book" Type="Self.book" Multiplicity="1" />
+    <End Role="saleRecord" Type="Self.saleRecord" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="book">
+        <PropertyRef Name="ISBN" />
+      </Principal>
+      <Dependent Role="saleRecord">
+        <PropertyRef Name="ISBN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_saleRecord_user">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="saleRecord" Type="Self.saleRecord" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="saleRecord">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="bookSaleEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="books" EntityType="Self.book" />
+    <EntitySet Name="saleRecords" EntityType="Self.saleRecord" />
+    <EntitySet Name="users" EntityType="Self.user" />
+    <AssociationSet Name="FK_saleRecord_book" Association="Self.FK_saleRecord_book">
+      <End Role="book" EntitySet="books" />
+      <End Role="saleRecord" EntitySet="saleRecords" />
+    </AssociationSet>
+    <AssociationSet Name="FK_saleRecord_user" Association="Self.FK_saleRecord_user">
+      <End Role="user" EntitySet="users" />
+      <End Role="saleRecord" EntitySet="saleRecords" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
